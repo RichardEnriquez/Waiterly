@@ -6,66 +6,201 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <HorizontalScrollView
-        android:layout_width="1266dp"
-        android:layout_height="220dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="14dp">
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout_contenedor"
+        android:layout_width="1223dp"
+        android:layout_height="547dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_entrantes"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="150dp"
+            android:layout_height="177dp"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
+                android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button One" />
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
 
-            <Button
+            <ImageButton
+                android:id="@+id/imageButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button Two" />
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
 
-            <Button
+            <ImageButton
+                android:id="@+id/imageButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button Three" />
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
 
-            <Button
+            <ImageButton
+                android:id="@+id/imageButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button Four" />
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
 
-            <Button
+            <ImageButton
+                android:id="@+id/imageButton6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button Five" />
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button Six" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button Seven" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button Eight" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button Nine" />
         </LinearLayout>
-    </HorizontalScrollView>
 
+        <LinearLayout
+            android:id="@+id/linearLayout_principales"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
+                android:layout_width="1253dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imageButton7"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton8"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton9"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton10"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton11"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton12"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_postres"
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:orientation="horizontal">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imageButton7"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton8"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton9"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton10"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton11"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton12"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
