@@ -32,8 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void conectServer() {
         Log.d("test","entro");
+
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://waiterly.tech/api/";
+        String url = "http://api.waiterly.tech/";
+
 
         StringRequest request = new StringRequest ( Request.Method. GET , url,
                 new Response.Listener <String> () {
