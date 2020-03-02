@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("test","entro");
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://api.waiterly.tech/";
+        String url = "https://api.waiterly.tech";
 
 
         StringRequest request = new StringRequest ( Request.Method. GET , url,
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener () {
             @Override public void onErrorResponse (VolleyError error) {
                 //errores de red
-                Log.d("test", "error de red");
+                Log.d("test", error.getMessage());
 
             }
         });
