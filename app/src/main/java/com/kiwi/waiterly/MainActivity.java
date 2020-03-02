@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                         Test test = gson.fromJson(response, Test.class);
                         Log.d("test", test.getMsg());
 
+                        TextView textView = findViewById(R.id.textView);
+                        textView.setText(test.getMsg());
 
                     }
                 }, new Response.ErrorListener () {
