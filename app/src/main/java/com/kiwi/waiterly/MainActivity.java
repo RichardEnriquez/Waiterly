@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         conectServer();
     }
 
-
     public void conectServer() {
         Log.d("test","entro");
 
@@ -61,6 +60,3 @@ public class MainActivity extends AppCompatActivity {
         queue.add(request);
     }
 }
-
-
-//valores msg
