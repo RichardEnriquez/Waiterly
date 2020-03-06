@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,8 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         conectServer();
+        loginTest();
     }
 
+    /**
+     * funcion que recibe una respuesta tipo get de la api
+     */
     public void conectServer() {
         Log.d("test","entro");
 
@@ -57,6 +62,46 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        queue.add(request);
+    }
+
+    /**
+     * test para poder recibir un token del servidor pasando como parametros
+     * nombre de usuari
+     * y password
+     * retornara un token ("ahora mismo el token se cambia cada vez que se llama")
+     * en desarrolo para que el token sea fijo
+     */
+    public void loginTest() {
+        Log.d("test","entro");
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://api.waiterly.tech/auth/login";
+
+
+        StringRequest request = new StringRequest ( Request.Method. POST , url,
+                new Response.Listener <String> () {
+                    @Override public void onResponse (String response) {
+                        Log.d("response", response);
+
+                    }
+                }, new Response.ErrorListener () {
+            @Override public void onErrorResponse (VolleyError error) {
+                //errores de red
+                Log.d("test", error.getMessage());
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map <String, String> params = new HashMap<>();
+
+                params.put ( "user", "admin");
+                params.put ( "pass", "kiwi");
+
+                return params;
+            }
+        };
         queue.add(request);
     }
 }
