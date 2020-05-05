@@ -3,9 +3,9 @@ package com.kiwi.waiterly.modelo;
 public class EntrantesList {
     private String titulo;
     private String detalle;
-    private int foto;
+    private String foto;
 
-    public EntrantesList(String titulo, String detalle, int foto) {
+    public EntrantesList(String titulo, String detalle, String foto) {
         this.titulo = titulo;
         this.detalle = detalle;
         this.foto = foto;
@@ -27,11 +27,11 @@ public class EntrantesList {
         this.detalle = detalle;
     }
 
-    public int getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(int foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 }

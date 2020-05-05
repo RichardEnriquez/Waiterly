@@ -33,7 +33,6 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
 
         return new ViewHolderDatos(view);
 
-
     }
 
     @Override
@@ -43,7 +42,7 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
         //holder.foto.setImageResource(listaEntrates.get(position).getFoto());
 
         Picasso.get()
-                .load("https://www.guiajando.com/wp-content/uploads/2018/02/bajaAdobeStock_102330458-1000x580.jpg")
+                .load(listaEntrates.get(position).getFoto())
                 //.load("https://www.196flavors.com/wp-content/uploads/2018/12/pique-macho-2.jpg")
 
                 .placeholder(R.drawable.place_holder)
