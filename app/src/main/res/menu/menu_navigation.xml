@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/entrante"
+        android:title="Entrante"
+        android:icon="@drawable/ic_sol"/>
+
+    <item
+        android:id="@+id/principal"
+        android:title="Principal"
+        android:icon="@drawable/ic_sol"/>
+
+    <item
+        android:id="@+id/postre"
+        android:title="Postre"
+        android:icon="@drawable/ic_sol"/>
+
+</menu>

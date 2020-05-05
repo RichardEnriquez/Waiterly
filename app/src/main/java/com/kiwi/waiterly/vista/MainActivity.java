@@ -1,11 +1,12 @@
-package com.kiwi.waiterly;
+package com.kiwi.waiterly.vista;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
+import android.view.MenuItem;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -14,11 +15,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-import com.kiwi.waiterly.modelo.Test;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kiwi.waiterly.R;
+import com.kiwi.waiterly.vista.entrante.Entrantes;
+import com.kiwi.waiterly.vista.postre.Postres;
+import com.kiwi.waiterly.vista.principal.Principales;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,14 +31,44 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        conectServer();
-        loginTest();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //seteamos entrante seleccionado por defecto
+        bottomNavigationView.setSelectedItemId(R.id.entrante);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.entrante:
+                        startActivity(new Intent(getApplicationContext(), Entrantes.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.principal:
+                        startActivity(new Intent(getApplicationContext(), Principales.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.postre:
+                        startActivity(new Intent(getApplicationContext(), Postres.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                }
+                return false;
+            }
+        });
+
+
+
+
     }
 
     /**
      * funcion que recibe una respuesta tipo get de la api
      */
-    public void conectServer() {
+/*    public void conectServer() {
         Log.d("test","entro");
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -63,12 +96,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         queue.add(request);
-    }
+    }*/
 
     /**
      * test para poder recibir un token del servidor pasando como parametros
-     * nombre de usuari
-     * y password
+     * nombre de usuario y password
      * retornara un token ("ahora mismo el token se cambia cada vez que se llama")
      * en desarrolo para que el token sea fijo
      */
@@ -105,3 +137,35 @@ public class MainActivity extends AppCompatActivity {
         queue.add(request);
     }
 }
+
+/*
+
+    <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Test">
+
+<TextView
+    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+            android:text="Pagina principal"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+<com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/DarkSlateBlue"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/menu_navigation" />
+
+</RelativeLayout>*/
