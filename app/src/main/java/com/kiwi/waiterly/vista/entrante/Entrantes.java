@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kiwi.waiterly.DetallePlatoSeleccionado;
 import com.kiwi.waiterly.controladores.AdaptadorDatos;
 import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.modelo.EntrantesList;
@@ -45,9 +47,15 @@ public class Entrantes extends AppCompatActivity {
                         "Seleccion: "+listaEntrantes.get(recyclerViewEntrantes.getChildAdapterPosition(view)).getTitulo(),
                         Toast.LENGTH_SHORT).show();
 
+                //pasaremos los datos del plato seleccionad
+                EntrantesList objeto = listaEntrantes.get(recyclerViewEntrantes.getChildAdapterPosition(view));
+
+                Intent intent = new Intent(Entrantes.this, DetallePlatoSeleccionado.class);
+                intent.putExtra("objeto", objeto);
+                startActivity(intent);
+
             }
         });
-
 
 
 
@@ -85,10 +93,10 @@ public class Entrantes extends AppCompatActivity {
 
     private void llenarEntrantes(){
 
-        listaEntrantes.add(new EntrantesList("Test","estan muy buenas","https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
-        listaEntrantes.add(new EntrantesList("Test","estan muy buenas","https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
-        listaEntrantes.add(new EntrantesList("Test","estan muy buenas","https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
-        listaEntrantes.add(new EntrantesList("Test","estan muy buenas","https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
+        listaEntrantes.add(new EntrantesList("Test1","estan muy buenas1","https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
+        listaEntrantes.add(new EntrantesList("Test2","estan muy buenas2","https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
+        listaEntrantes.add(new EntrantesList("Test3","estan muy buenas3","https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
+        listaEntrantes.add(new EntrantesList("Test4","estan muy buenas4","https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
 
     }
 }

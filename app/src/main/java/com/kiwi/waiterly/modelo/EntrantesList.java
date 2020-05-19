@@ -1,6 +1,8 @@
 package com.kiwi.waiterly.modelo;
 
-public class EntrantesList {
+import java.io.Serializable;
+
+public class EntrantesList implements Serializable {
     private String titulo;
     private String detalle;
     private String foto;
@@ -33,5 +35,14 @@ public class EntrantesList {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    @Override
+    public String toString() {
+        return "EntrantesList{" +
+                "titulo='" + titulo + '\'' +
+                ", detalle='" + detalle + '\'' +
+                ", foto='" + foto + '\'' +
+                '}';
     }
 }
