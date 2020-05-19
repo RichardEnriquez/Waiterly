@@ -40,4 +40,16 @@
         app:layout_constraintStart_toEndOf="@+id/imageViewPlato"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="77dp"
+        android:layout_height="47dp"
+        android:text="$$"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDetallePlato"
+        app:layout_constraintStart_toStartOf="@+id/textViewDetallePlato"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetallePlato" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
