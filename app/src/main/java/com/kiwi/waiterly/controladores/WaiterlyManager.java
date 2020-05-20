@@ -3,6 +3,7 @@ package com.kiwi.waiterly.controladores;
 public class WaiterlyManager {
     private static WaiterlyManager instancia = null;
     //private Array
+    //private Has
 
     //Constructor
     private WaiterlyManager(){
