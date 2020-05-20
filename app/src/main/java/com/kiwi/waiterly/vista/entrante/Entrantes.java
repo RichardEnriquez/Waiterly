@@ -43,9 +43,9 @@ public class Entrantes extends AppCompatActivity {
         adaptadorDatos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),
+               /* Toast.makeText(getApplicationContext(),
                         "Seleccion: "+listaEntrantes.get(recyclerViewEntrantes.getChildAdapterPosition(view)).getTitulo(),
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();*/
 
                 //pasaremos los datos del plato seleccionad
                 EntrantesList objeto = listaEntrantes.get(recyclerViewEntrantes.getChildAdapterPosition(view));
@@ -53,7 +53,6 @@ public class Entrantes extends AppCompatActivity {
                 Intent intent = new Intent(Entrantes.this, DetallePlatoSeleccionado.class);
                 intent.putExtra("objeto", objeto);
                 startActivity(intent);
-
             }
         });
 
