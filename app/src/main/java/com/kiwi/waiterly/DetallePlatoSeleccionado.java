@@ -3,22 +3,22 @@ package com.kiwi.waiterly;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kiwi.waiterly.modelo.EntrantesList;
+import com.kiwi.waiterly.modelo.Plato;
 import com.squareup.picasso.Picasso;
 
 public class DetallePlatoSeleccionado extends AppCompatActivity {
     private TextView tituloPlato;
     private TextView detallePlato;
     private ImageView imagenPlato;
+    private TextView precioPlato;
     private Button butonCarrito;
-    private EntrantesList plato;
+    private Plato plato;
 
 
 
@@ -29,6 +29,7 @@ public class DetallePlatoSeleccionado extends AppCompatActivity {
 
         tituloPlato = findViewById(R.id.textViewTituloPlato);
         detallePlato = findViewById(R.id.textViewDetallePlato);
+        precioPlato = findViewById(R.id.textViewPrecioPlato);
         imagenPlato = findViewById(R.id.imageViewPlato);
         butonCarrito = findViewById(R.id.buttonAnadirCarrito);
 
@@ -48,12 +49,13 @@ public class DetallePlatoSeleccionado extends AppCompatActivity {
     }
     //todo:FUNCIONES
     public void recueperarDatos(){
-        plato = (EntrantesList) getIntent().getSerializableExtra("objeto");
+        plato = (Plato) getIntent().getSerializableExtra("objeto");
         //Log.d("datos", "====> "+plato);
 
 
         tituloPlato.setText(plato.getTitulo());
         detallePlato.setText(plato.getDetalle());
+        precioPlato.setText(plato.getPrecio()+"€");
         Picasso.get()
                 .load(plato.getFoto())
                 //.load("https://www.196flavors.com/wp-content/uploads/2018/12/pique-macho-2.jpg")

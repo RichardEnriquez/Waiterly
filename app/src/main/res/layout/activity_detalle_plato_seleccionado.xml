@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewPrecioPlato"
         android:layout_width="66dp"
         android:layout_height="20dp"
         android:text="$$"
@@ -64,8 +64,8 @@
         android:text="Añadir al carrito"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewPrecioPlato"
+        app:layout_constraintStart_toEndOf="@+id/textViewPrecioPlato"
+        app:layout_constraintTop_toTopOf="@+id/textViewPrecioPlato" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

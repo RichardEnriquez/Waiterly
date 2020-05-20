@@ -11,16 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.modelo.EntrantesList;
+import com.kiwi.waiterly.modelo.Plato;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHolderDatos> implements View.OnClickListener{
 
-    ArrayList<EntrantesList> listaEntrates;
+    ArrayList<Plato> listaEntrates;
     private View.OnClickListener listener;
 
-    public AdaptadorDatos(ArrayList<EntrantesList> listaEntrates) {
+    public AdaptadorDatos(ArrayList<Plato> listaEntrates) {
         this.listaEntrates = listaEntrates;
     }
 
@@ -39,6 +40,8 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
         holder.titulo.setText(listaEntrates.get(position).getTitulo());
         holder.detalle.setText(listaEntrates.get(position).getDetalle());
+        String precio = String.valueOf(listaEntrates.get(position).getPrecio()) ;
+        holder.precio.setText(precio);
         //holder.foto.setImageResource(listaEntrates.get(position).getFoto());
 
         Picasso.get()
@@ -69,13 +72,14 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
-        TextView titulo, detalle;
+        TextView titulo, detalle, precio;
         ImageView foto;
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             titulo = itemView.findViewById(R.id.textViewEntranteTitulo);
             detalle = itemView.findViewById(R.id.textViewEntranteDescripcion);
+            precio = itemView.findViewById(R.id.textViewPrecio);
             foto = itemView.findViewById(R.id.imageViewEntrante);
 
         }
