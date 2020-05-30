@@ -19,6 +19,7 @@ import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.modelo.EntrantesList;
 import com.kiwi.waiterly.modelo.Plato;
 import com.kiwi.waiterly.vista.MainActivity;
+import com.kiwi.waiterly.vista.carrito.CarritoActivity;
 import com.kiwi.waiterly.vista.postre.Postres;
 import com.kiwi.waiterly.vista.principal.Principales;
 
@@ -60,7 +61,7 @@ public class Entrantes extends AppCompatActivity {
 
 
 
-
+        //BOTTOM
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         //seteamos entrante seleccionado por defecto
         bottomNavigationView.setSelectedItemId(R.id.entrante);
@@ -93,6 +94,12 @@ public class Entrantes extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         finish();
                         return true;
+
+                    case R.id.carrito:
+                        startActivity(new Intent(getApplicationContext(), CarritoActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
                 }
                 return false;
             }

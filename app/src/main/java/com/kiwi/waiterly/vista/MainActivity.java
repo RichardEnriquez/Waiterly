@@ -19,6 +19,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kiwi.waiterly.R;
+import com.kiwi.waiterly.vista.carrito.CarritoActivity;
 import com.kiwi.waiterly.vista.entrante.Entrantes;
 import com.kiwi.waiterly.vista.mapa.MapsActivity;
 import com.kiwi.waiterly.vista.postre.Postres;
@@ -76,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         return true;
 
-//                    case R.id.carrito:
-//                        startActivity(new Intent(getApplicationContext(), CarritoActivity.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
+                    case R.id.carrito:
+                        startActivity(new Intent(getApplicationContext(), CarritoActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }

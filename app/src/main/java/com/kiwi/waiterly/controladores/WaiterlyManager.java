@@ -1,13 +1,17 @@
 package com.kiwi.waiterly.controladores;
 
+import com.kiwi.waiterly.modelo.Plato;
+
+import java.util.ArrayList;
+
 public class WaiterlyManager {
     private static WaiterlyManager instancia = null;
-    //private Array
+    private ArrayList<Plato> platos;
     //private Has
 
     //Constructor
     private WaiterlyManager(){
-        //damos valor al array de platos para no repetir
+        platos = new ArrayList<Plato>();
     }
 
     public static WaiterlyManager getInstance(){
@@ -18,4 +22,11 @@ public class WaiterlyManager {
     }
 
     //todo:FUNCIONES
+    public void addPlato(Plato plato){
+        platos.add(plato);
+    }
+
+    public ArrayList getPlatos(){
+        return platos;
+    }
 }

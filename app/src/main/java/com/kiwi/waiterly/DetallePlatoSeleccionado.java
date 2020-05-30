@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kiwi.waiterly.controladores.WaiterlyManager;
 import com.kiwi.waiterly.modelo.Plato;
 import com.squareup.picasso.Picasso;
 
 public class DetallePlatoSeleccionado extends AppCompatActivity {
+    private WaiterlyManager waiterlyManager = WaiterlyManager.getInstance();
     private TextView tituloPlato;
     private TextView detallePlato;
     private ImageView imagenPlato;
@@ -38,8 +40,11 @@ public class DetallePlatoSeleccionado extends AppCompatActivity {
         butonCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //añadimos plato al array del manager
+                waiterlyManager.addPlato(plato);
                 Toast.makeText(getApplicationContext(),"Plato: "+plato.getTitulo()+" añadido ", Toast.LENGTH_SHORT).show();
+                //cerramos esta activity
+                finish();
 
             }
         });

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.vista.MainActivity;
+import com.kiwi.waiterly.vista.carrito.CarritoActivity;
 import com.kiwi.waiterly.vista.entrante.Entrantes;
 import com.kiwi.waiterly.vista.postre.Postres;
 
@@ -52,6 +53,11 @@ public class Principales extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), Postres.class));
                         overridePendingTransition(0,0);
                         finish();
+                        return true;
+
+                    case R.id.carrito:
+                        startActivity(new Intent(getApplicationContext(), CarritoActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;

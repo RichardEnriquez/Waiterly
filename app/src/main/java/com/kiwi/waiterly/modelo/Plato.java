@@ -46,4 +46,14 @@ public class Plato  implements Serializable {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+    @Override
+    public String toString() {
+        return "Plato{" +
+                "titulo='" + titulo + '\'' +
+                ", detalle='" + detalle + '\'' +
+                ", precio=" + precio +
+                ", foto='" + foto + '\'' +
+                '}';
+    }
 }
