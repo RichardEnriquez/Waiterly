@@ -18,6 +18,7 @@ import com.kiwi.waiterly.controladores.AdaptadorDatos;
 import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.modelo.EntrantesList;
 import com.kiwi.waiterly.modelo.Plato;
+import com.kiwi.waiterly.vista.MainActivity;
 import com.kiwi.waiterly.vista.postre.Postres;
 import com.kiwi.waiterly.vista.principal.Principales;
 
@@ -68,6 +69,13 @@ public class Entrantes extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
+
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        finish();
+                        return true;
+
                     case R.id.entrante:
                         startActivity(new Intent(getApplicationContext(), Entrantes.class));
                         overridePendingTransition(0,0);

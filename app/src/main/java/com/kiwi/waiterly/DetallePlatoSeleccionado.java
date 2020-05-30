@@ -38,13 +38,11 @@ public class DetallePlatoSeleccionado extends AppCompatActivity {
         butonCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(getApplicationContext(),"Plato: "+plato.getTitulo()+" añadido ", Toast.LENGTH_SHORT).show();
 
             }
         });
-
-
-
 
     }
     //todo:FUNCIONES

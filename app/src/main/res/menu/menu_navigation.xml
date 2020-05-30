@@ -2,18 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+
+    <item
         android:id="@+id/entrante"
         android:title="Entrante"
-        android:icon="@drawable/ic_sol"/>
+        android:icon="@drawable/entrantes"/>
 
     <item
         android:id="@+id/principal"
         android:title="Principal"
-        android:icon="@drawable/ic_sol"/>
+        android:icon="@drawable/principales"/>
 
     <item
         android:id="@+id/postre"
         android:title="Postre"
-        android:icon="@drawable/ic_sol"/>
+        android:icon="@drawable/postres"/>
+
+    <item
+        android:id="@+id/carrito"
+        android:title="Carrito"
+        android:icon="@drawable/carrito"/>
 
 </menu>

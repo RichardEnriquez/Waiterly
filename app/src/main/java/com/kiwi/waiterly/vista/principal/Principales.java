@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kiwi.waiterly.R;
+import com.kiwi.waiterly.vista.MainActivity;
 import com.kiwi.waiterly.vista.entrante.Entrantes;
 import com.kiwi.waiterly.vista.postre.Postres;
 
@@ -29,6 +30,12 @@ public class Principales extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
+
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
                     case R.id.entrante:
                         startActivity(new Intent(getApplicationContext(), Entrantes.class));
                         overridePendingTransition(0,0);
