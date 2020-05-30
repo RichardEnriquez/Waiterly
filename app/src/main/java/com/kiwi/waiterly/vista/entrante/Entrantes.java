@@ -38,6 +38,7 @@ public class Entrantes extends AppCompatActivity {
         listaEntrantes = new ArrayList<>();
         recyclerViewEntrantes = findViewById(R.id.recyclerViewEntrantes);
         recyclerViewEntrantes.setLayoutManager(new LinearLayoutManager(this/*,RecyclerView.VERTICAL,false*/));
+
         llenarEntrantes();
 
         AdaptadorDatos adaptadorDatos = new AdaptadorDatos(listaEntrantes);
@@ -108,18 +109,18 @@ public class Entrantes extends AppCompatActivity {
 
     private void llenarEntrantes(){
 
-        listaEntrantes.add(new EntrantesList("Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
-        listaEntrantes.add(new EntrantesList("Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
-        listaEntrantes.add(new EntrantesList("Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
-        listaEntrantes.add(new EntrantesList("Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
-        listaEntrantes.add(new EntrantesList("Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
-        listaEntrantes.add(new EntrantesList("Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
-        listaEntrantes.add(new EntrantesList("Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
-        listaEntrantes.add(new EntrantesList("Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
-        listaEntrantes.add(new EntrantesList("Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
-        listaEntrantes.add(new EntrantesList("Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
-        listaEntrantes.add(new EntrantesList("Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
-        listaEntrantes.add(new EntrantesList("Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
+        listaEntrantes.add(new EntrantesList(1,"Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
+        listaEntrantes.add(new EntrantesList(2,"Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
+        listaEntrantes.add(new EntrantesList(3,"Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
+        listaEntrantes.add(new EntrantesList(4,"Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
+        listaEntrantes.add(new EntrantesList(5,"Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
+        listaEntrantes.add(new EntrantesList(6,"Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
+        listaEntrantes.add(new EntrantesList(7,"Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
+        listaEntrantes.add(new EntrantesList(8,"Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
+        listaEntrantes.add(new EntrantesList(9,"Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
+        listaEntrantes.add(new EntrantesList(10,"Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
+        listaEntrantes.add(new EntrantesList(11,"Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
+        listaEntrantes.add(new EntrantesList(12,"Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
 
     }
 }

@@ -26,7 +26,7 @@ public class WaiterlyManager {
         platos.add(plato);
     }
 
-    public ArrayList getPlatos(){
+    public ArrayList<Plato> getPlatos(){
         return platos;
     }
 }

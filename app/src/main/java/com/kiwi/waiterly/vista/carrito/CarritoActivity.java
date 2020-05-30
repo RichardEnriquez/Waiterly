@@ -2,6 +2,8 @@ package com.kiwi.waiterly.vista.carrito;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,22 +13,39 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.controladores.WaiterlyManager;
+import com.kiwi.waiterly.modelo.Plato;
 import com.kiwi.waiterly.vista.MainActivity;
 import com.kiwi.waiterly.vista.entrante.Entrantes;
 import com.kiwi.waiterly.vista.postre.Postres;
 import com.kiwi.waiterly.vista.principal.Principales;
 
+import java.util.ArrayList;
+
 public class CarritoActivity extends AppCompatActivity {
     WaiterlyManager waiterlyManager = WaiterlyManager.getInstance();
+
+    ArrayList<Plato> listaPlatos;
+    RecyclerView recyclerViewCarrito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
 
-        Log.d("platos", "=> "+waiterlyManager.getPlatos());
+        listaPlatos = new ArrayList<>();
+        recyclerViewCarrito = findViewById(R.id.recyclerViewCarrito);
+        recyclerViewCarrito.setLayoutManager(new LinearLayoutManager(this/*,RecyclerView.VERTICAL,false*/));
+
+        listaPlatos = waiterlyManager.getPlatos();
+        Log.d("platos", "=> "+listaPlatos);
+
+        AdaptadorCarrito adaptadorCarrito = new AdaptadorCarrito(listaPlatos);
+        recyclerViewCarrito.setAdapter(adaptadorCarrito);
 
 
+
+
+        //BOTTOM
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         //seteamos entrante seleccionado por defecto
         bottomNavigationView.setSelectedItemId(R.id.carrito);

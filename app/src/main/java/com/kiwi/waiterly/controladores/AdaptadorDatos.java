@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHolderDatos> implements View.OnClickListener{
 
-    ArrayList<Plato> listaEntrates;
+    private ArrayList<Plato> listaEntrates;
     private View.OnClickListener listener;
 
     public AdaptadorDatos(ArrayList<Plato> listaEntrates) {
