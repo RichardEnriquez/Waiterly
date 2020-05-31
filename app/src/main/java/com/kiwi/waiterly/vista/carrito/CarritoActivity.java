@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kiwi.waiterly.R;
@@ -24,20 +27,38 @@ import java.util.ArrayList;
 public class CarritoActivity extends AppCompatActivity {
     WaiterlyManager waiterlyManager = WaiterlyManager.getInstance();
 
-    ArrayList<Plato> listaPlatos;
+    ArrayList<Plato> listaPlatos = new ArrayList<>();
     RecyclerView recyclerViewCarrito;
+    private Button buttonCarritoFinalizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
 
-        listaPlatos = new ArrayList<>();
+        buttonCarritoFinalizar = findViewById(R.id.buttonCarritoFinalizar);
+        buttonCarritoFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listaPlatos.isEmpty()){
+                    Toast.makeText(getApplicationContext(),
+                            "Aun no hay platos",
+                            Toast.LENGTH_SHORT).show();
+                }else {
+                    waiterlyManager.cleanPlatos();
+                    Toast.makeText(getApplicationContext(),
+                            "Pedido Realizado",
+                                Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
+
         recyclerViewCarrito = findViewById(R.id.recyclerViewCarrito);
         recyclerViewCarrito.setLayoutManager(new LinearLayoutManager(this/*,RecyclerView.VERTICAL,false*/));
 
         listaPlatos = waiterlyManager.getPlatos();
-        Log.d("platos", "=> "+listaPlatos);
+        //Log.d("platos", "=> "+listaPlatos);
 
         AdaptadorCarrito adaptadorCarrito = new AdaptadorCarrito(listaPlatos);
         recyclerViewCarrito.setAdapter(adaptadorCarrito);

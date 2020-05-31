@@ -24,11 +24,38 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCarrito"
-        android:layout_width="687dp"
-        android:layout_height="534dp"
+        android:layout_width="723dp"
+        android:layout_height="391dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="223dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:text="Carrito"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCarritoFinalizar"
+        android:layout_width="299dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="16dp"
+        android:background="#43A047"
+        android:text="Finalizar"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

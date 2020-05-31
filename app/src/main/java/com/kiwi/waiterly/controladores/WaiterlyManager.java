@@ -29,4 +29,8 @@ public class WaiterlyManager {
     public ArrayList<Plato> getPlatos(){
         return platos;
     }
+
+    public void cleanPlatos(){
+        platos = new ArrayList<>();
+    }
 }
