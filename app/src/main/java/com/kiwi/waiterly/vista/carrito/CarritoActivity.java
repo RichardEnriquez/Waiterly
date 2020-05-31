@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.controladores.WaiterlyManager;
@@ -49,7 +50,8 @@ public class CarritoActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),
                             "Pedido Realizado",
                                 Toast.LENGTH_SHORT).show();
-                    finish();
+
+
                 }
             }
         });

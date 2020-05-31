@@ -1,5 +1,7 @@
 package com.kiwi.waiterly.controladores;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.modelo.Plato;
 
 import java.util.ArrayList;
@@ -7,7 +9,6 @@ import java.util.ArrayList;
 public class WaiterlyManager {
     private static WaiterlyManager instancia = null;
     private ArrayList<Plato> platos;
-    //private Has
 
     //Constructor
     private WaiterlyManager(){

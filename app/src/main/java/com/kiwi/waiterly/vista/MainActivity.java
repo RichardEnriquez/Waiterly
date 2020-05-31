@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kiwi.waiterly.R;
+import com.kiwi.waiterly.controladores.WaiterlyManager;
 import com.kiwi.waiterly.vista.carrito.CarritoActivity;
 import com.kiwi.waiterly.vista.entrante.Entrantes;
 import com.kiwi.waiterly.vista.mapa.MapsActivity;
@@ -29,11 +31,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    WaiterlyManager waiterlyManager = WaiterlyManager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Animacion de coccion
+        LottieAnimationView lottieFood = (LottieAnimationView) findViewById(R.id.lottieAnimationFood);
+        if (waiterlyManager.getPlatos().isEmpty()){
+            lottieFood.setVisibility(View.INVISIBLE);
+        }else{
+            lottieFood.setVisibility(View.VISIBLE);
+            lottieFood.playAnimation();
+        }
+
+
 
         Button buttonMaps = findViewById(R.id.buttonMaps);
         buttonMaps.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
 
     /**
      * funcion que recibe una respuesta tipo get de la api
