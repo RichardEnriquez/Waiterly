@@ -9,9 +9,10 @@ import java.util.ArrayList;
 public class WaiterlyManager {
     private static WaiterlyManager instancia = null;
 
-    private String TOKEN_RESSTAURANTE;
+    private String TOKEN_RESSTAURANTE = " asdasdasdfasdf";
     private ArrayList<Plato> carrito;
     private ArrayList<Plato> platosPedidos;
+
 
 
     //Constructor
@@ -27,6 +28,9 @@ public class WaiterlyManager {
         return instancia;
     }
 
+    public String getTOKEN() {
+        return TOKEN_RESSTAURANTE;
+    }
     //todo:FUNCIONES
     public void crearToken(String token){
         TOKEN_RESSTAURANTE = token;

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,12 +31,17 @@ public class CarritoActivity extends AppCompatActivity {
 
     ArrayList<Plato> listaPlatos = new ArrayList<>();
     RecyclerView recyclerViewCarrito;
+    private LottieAnimationView lottiePago;
     private Button buttonCarritoFinalizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
+
+
+        lottiePago = findViewById(R.id.animacionPagar);
+        lottiePago.setVisibility(View.INVISIBLE);
 
         buttonCarritoFinalizar = findViewById(R.id.buttonCarritoFinalizar);
         buttonCarritoFinalizar.setOnClickListener(new View.OnClickListener() {
@@ -52,15 +58,37 @@ public class CarritoActivity extends AppCompatActivity {
                         waiterlyManager.addPlatoPedido(plato);
                     }
                     waiterlyManager.cleanCarrito();
+
+                    //animacion
+                    recyclerViewCarrito.setVisibility(View.INVISIBLE);
+                    lottiePago.setVisibility(View.VISIBLE);
+                    lottiePago.playAnimation();
+
+
                     Toast.makeText(getApplicationContext(),
                             "Pedido Realizado",
                                 Toast.LENGTH_SHORT).show();
-                    finish();
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            handler.postDelayed(this, 100);
+                            Log.d("hand", "------"+lottiePago.getFrame() );
+                            if (lottiePago.getFrame() == 89){
+                                finish();
+                            }
+                        }
+                    }, 0);
+
+
+                    //finish();
                 }
             }
         });
 
         recyclerViewCarrito = findViewById(R.id.recyclerViewCarrito);
+        recyclerViewCarrito.setVisibility(View.VISIBLE);
         recyclerViewCarrito.setLayoutManager(new LinearLayoutManager(this/*,RecyclerView.VERTICAL,false*/));
 
         listaPlatos = waiterlyManager.getPlatosCarrito();

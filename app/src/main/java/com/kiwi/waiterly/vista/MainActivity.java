@@ -39,10 +39,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //indicando que empiece la aplicacion por el login
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+        //creamos condicion verificando si hay token para hacer el login o no
+        if (waiterlyManager.getTOKEN() == null) {
+            //indicando que empiece la aplicacion por el login
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         //Animacion de coccion
         LottieAnimationView lottieFood = (LottieAnimationView) findViewById(R.id.lottieAnimationFood);

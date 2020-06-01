@@ -8,6 +8,19 @@
     tools:context=".vista.carrito.CarritoActivity">
 
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionPagar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:lottie_fileName="pago-realizado.json"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_loop="false"
+        app:lottie_speed="0.90" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -50,7 +63,7 @@
         android:layout_height="64dp"
         android:layout_marginBottom="16dp"
         android:background="#43A047"
-        android:text="Finalizar"
+        android:text="Pagar"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
