@@ -60,8 +60,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     public void crearToken(){
@@ -76,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         Log.d("response", response);
                         waiterlyManager.crearToken(response);
-
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
@@ -85,19 +82,18 @@ public class LoginActivity extends AppCompatActivity {
                 }, new Response.ErrorListener () {
             @Override public void onErrorResponse (VolleyError error) {
                 //errores de red
-                Log.d("test", "sad "+error.getMessage());
-                lottieErrorServer.setVisibility(View.VISIBLE);
-                lottieErrorServer.playAnimation();
+                Log.d("test", " Error de red = "+error.getMessage());
+                lottieError.playAnimation();
 
             }
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map <String, String> params = new HashMap<>();
-
-                params.put ( "username", usuarioText.toString());
-                params.put ( "password", usuarioPass.toString());
-
+                String user = usuarioText.getText().toString();
+                String pass = usuarioPass.getText().toString();
+                params.put ( "username", user);
+                params.put ( "password", pass);
                 return params;
             }
         };

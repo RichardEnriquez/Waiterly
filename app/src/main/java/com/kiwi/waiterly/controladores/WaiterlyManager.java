@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class WaiterlyManager {
     private static WaiterlyManager instancia = null;
 
-    private String TOKEN_RESSTAURANTE = " asdasdasdfasdf";
+    private String TOKEN_RESSTAURANTE;
     private ArrayList<Plato> carrito;
     private ArrayList<Plato> platosPedidos;
 
