@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -39,7 +40,6 @@ public class CarritoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
 
-
         lottiePago = findViewById(R.id.animacionPagar);
         lottiePago.setVisibility(View.INVISIBLE);
 
@@ -64,7 +64,6 @@ public class CarritoActivity extends AppCompatActivity {
                     lottiePago.setVisibility(View.VISIBLE);
                     lottiePago.playAnimation();
 
-
                     Toast.makeText(getApplicationContext(),
                             "Pedido Realizado",
                                 Toast.LENGTH_SHORT).show();
@@ -81,7 +80,6 @@ public class CarritoActivity extends AppCompatActivity {
                         }
                     }, 0);
 
-
                     //finish();
                 }
             }
@@ -96,6 +94,7 @@ public class CarritoActivity extends AppCompatActivity {
 
         AdaptadorCarrito adaptadorCarrito = new AdaptadorCarrito(listaPlatos);
         recyclerViewCarrito.setAdapter(adaptadorCarrito);
+
 
 
 

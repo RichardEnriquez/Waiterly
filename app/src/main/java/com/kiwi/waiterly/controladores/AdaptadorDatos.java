@@ -29,9 +29,7 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_entrante_list,null,false);
-
         view.setOnClickListener(this);
-
         return new ViewHolderDatos(view);
 
     }
@@ -60,7 +58,6 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
 
     public void setOnClickListener(View.OnClickListener listener){
         this.listener = listener;
-
     }
 
     @Override
@@ -68,7 +65,6 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
         if (listener != null){
             listener.onClick(view);
         }
-
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {

@@ -1,5 +1,6 @@
 package com.kiwi.waiterly.vista.carrito;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,20 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kiwi.waiterly.R;
-import com.kiwi.waiterly.controladores.AdaptadorDatos;
+import com.kiwi.waiterly.controladores.WaiterlyManager;
 import com.kiwi.waiterly.modelo.Plato;
+import com.kiwi.waiterly.vista.MainActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.ViewHolderDatos>{
+public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.ViewHolderDatos> implements View.OnClickListener{
     private ArrayList<Plato> listaPlatosCarrito;
-
-
+    private View.OnClickListener listener;
 
     public AdaptadorCarrito(ArrayList<Plato> listaPlatos) {
         this.listaPlatosCarrito = listaPlatos;
     }
+
 
     @NonNull
     @Override
@@ -34,7 +36,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderDatos holder, final int position) {
         holder.titulo.setText(listaPlatosCarrito.get(position).getTitulo());
         holder.detalle.setText(listaPlatosCarrito.get(position).getDetalle());
         String precio = String.valueOf(listaPlatosCarrito.get(position).getPrecio()) ;
@@ -48,17 +50,32 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.View
                 .placeholder(R.drawable.place_holder)
                 .error(R.drawable.menu)
                 .into(holder.foto);
+
     }
+
+
 
     @Override
     public int getItemCount() {
         return listaPlatosCarrito.size();
     }
 
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (listener != null){
+            listener.onClick(v);
+        }
+    }
+
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         TextView titulo, detalle, precio;
-        ImageView foto;
+        ImageView foto ,delete;
+
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
@@ -66,6 +83,10 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.View
             detalle = itemView.findViewById(R.id.textViewDescripcionCarrito);
             precio = itemView.findViewById(R.id.textViewPrecioCarrito);
             foto = itemView.findViewById(R.id.imageViewCarrito);
+            delete = itemView.findViewById(R.id.imageViewCarritoDelete);
+
         }
+
     }
+
 }
