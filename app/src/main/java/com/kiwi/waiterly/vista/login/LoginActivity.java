@@ -2,12 +2,17 @@ package com.kiwi.waiterly.vista.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.LottieDrawable;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.controladores.WaiterlyManager;
+import com.kiwi.waiterly.vista.MainActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,11 +32,22 @@ public class LoginActivity extends AppCompatActivity {
     private TextView usuarioText;
     private TextView usuarioPass;
     private Button buttonlogin;
+    private LottieAnimationView lottieOctopus;
+    private LottieAnimationView lottieError;
+    private LottieAnimationView lottieErrorServer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+        lottieOctopus = findViewById(R.id.animacionLogin);
+        lottieOctopus.playAnimation();
+        lottieError = findViewById(R.id.animacionError);
+        lottieErrorServer = findViewById(R.id.animacionErrorServer);
+        lottieErrorServer.setVisibility(View.INVISIBLE);
 
         usuarioText = findViewById(R.id.textUsuario);
         usuarioPass = findViewById(R.id.textPassword);
@@ -40,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 crearToken();
-
             }
         });
 
@@ -60,13 +76,18 @@ public class LoginActivity extends AppCompatActivity {
 
                         Log.d("response", response);
                         waiterlyManager.crearToken(response);
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
                         finish();
 
                     }
                 }, new Response.ErrorListener () {
             @Override public void onErrorResponse (VolleyError error) {
                 //errores de red
-                Log.d("test", error.getMessage());
+                Log.d("test", "sad "+error.getMessage());
+                lottieErrorServer.setVisibility(View.VISIBLE);
+                lottieErrorServer.playAnimation();
 
             }
         }){

@@ -23,6 +23,7 @@ import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.controladores.WaiterlyManager;
 import com.kiwi.waiterly.vista.carrito.CarritoActivity;
 import com.kiwi.waiterly.vista.entrante.Entrantes;
+import com.kiwi.waiterly.vista.login.LoginActivity;
 import com.kiwi.waiterly.vista.mapa.MapsActivity;
 import com.kiwi.waiterly.vista.postre.Postres;
 import com.kiwi.waiterly.vista.principal.Principales;
@@ -38,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        
+        //indicando que empiece la aplicacion por el login
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
 
         //Animacion de coccion
         LottieAnimationView lottieFood = (LottieAnimationView) findViewById(R.id.lottieAnimationFood);

@@ -9,52 +9,87 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animacionLogin"
-        android:layout_width="318dp"
-        android:layout_height="275dp"
+        android:layout_width="650dp"
+        android:layout_height="512dp"
         app:layout_constraintBottom_toTopOf="@+id/textUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-        app:lottie_imageAssetsFolder="assets"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126"
         app:lottie_fileName="octopus.json"
+        app:lottie_imageAssetsFolder="assets"
         app:lottie_loop="true"
-        app:lottie_speed="1"
-        />
+        app:lottie_speed="1" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionError"
+        android:layout_width="600dp"
+        android:layout_height="536dp"
+
+        android:layout_marginEnd="44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666"
+        app:lottie_fileName="error-animation.json"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_speed="1" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionErrorServer"
+        android:layout_width="396dp"
+        android:layout_height="363dp"
+
+        android:layout_marginEnd="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textUsuario"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.544"
+        app:lottie_fileName="server-error.json"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_speed="1" />
 
     <EditText
         android:id="@+id/textUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="409dp"
+        android:layout_height="87dp"
         android:ems="10"
         android:hint="Usuario"
         android:inputType="textPersonName"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintVertical_bias="0.429" />
 
     <EditText
         android:id="@+id/textPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="415dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textUsuario" />
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Button"
+        android:layout_width="253dp"
+        android:layout_height="66dp"
+        android:background="#43A047"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class WaiterlyManager {
     private static WaiterlyManager instancia = null;
 
-    private String TOKEN;
+    private String TOKEN_RESSTAURANTE;
     private ArrayList<Plato> carrito;
     private ArrayList<Plato> platosPedidos;
 
@@ -29,7 +29,7 @@ public class WaiterlyManager {
 
     //todo:FUNCIONES
     public void crearToken(String token){
-        TOKEN = token;
+        TOKEN_RESSTAURANTE = token;
     }
     public void addPlatoCarrito(Plato plato){
         carrito.add(plato);
