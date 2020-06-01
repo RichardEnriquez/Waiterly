@@ -8,11 +8,14 @@ import java.util.ArrayList;
 
 public class WaiterlyManager {
     private static WaiterlyManager instancia = null;
-    private ArrayList<Plato> platos;
+    private ArrayList<Plato> carrito;
+    private ArrayList<Plato> platosPedidos;
+
 
     //Constructor
     private WaiterlyManager(){
-        platos = new ArrayList<Plato>();
+        carrito = new ArrayList<Plato>();
+        platosPedidos = new ArrayList<Plato>();
     }
 
     public static WaiterlyManager getInstance(){
@@ -23,15 +26,23 @@ public class WaiterlyManager {
     }
 
     //todo:FUNCIONES
-    public void addPlato(Plato plato){
-        platos.add(plato);
+    public void addPlatoCarrito(Plato plato){
+        carrito.add(plato);
     }
 
-    public ArrayList<Plato> getPlatos(){
-        return platos;
+    public ArrayList<Plato> getPlatosCarrito(){
+        return carrito;
     }
 
-    public void cleanPlatos(){
-        platos = new ArrayList<>();
+    public ArrayList<Plato> getPlatosPedidos(){
+        return platosPedidos;
+    }
+
+    public void addPlatoPedido(Plato plato){
+        platosPedidos.add(plato);
+    }
+
+    public void cleanCarrito(){
+        carrito = new ArrayList<>();
     }
 }

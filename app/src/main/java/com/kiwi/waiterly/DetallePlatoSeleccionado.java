@@ -41,7 +41,7 @@ public class DetallePlatoSeleccionado extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //añadimos plato al array del manager
-                waiterlyManager.addPlato(plato);
+                waiterlyManager.addPlatoCarrito(plato);
                 Toast.makeText(getApplicationContext(),"Plato: "+plato.getTitulo()+" añadido ", Toast.LENGTH_SHORT).show();
                 //cerramos esta activity
                 finish();

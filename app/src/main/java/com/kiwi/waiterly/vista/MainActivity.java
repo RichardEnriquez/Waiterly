@@ -38,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         //Animacion de coccion
         LottieAnimationView lottieFood = (LottieAnimationView) findViewById(R.id.lottieAnimationFood);
-        if (waiterlyManager.getPlatos().isEmpty()){
+        if (waiterlyManager.getPlatosPedidos().isEmpty()){
             lottieFood.setVisibility(View.INVISIBLE);
         }else{
             lottieFood.setVisibility(View.VISIBLE);
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
+        //Boton para funcion de mapas
         Button buttonMaps = findViewById(R.id.buttonMaps);
         buttonMaps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +60,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        //funcion de navigaton BottomNavigationView
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         //seteamos entrante seleccionado por defecto
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -181,35 +184,3 @@ public class MainActivity extends AppCompatActivity {
         queue.add(request);
     }
 }
-
-/*
-
-    <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Test">
-
-<TextView
-    android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_centerInParent="true"
-            android:text="Pagina principal"
-            android:textSize="50sp"
-            android:textStyle="bold" />
-
-<com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:itemBackground="@color/DarkSlateBlue"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
-        app:menu="@menu/menu_navigation" />
-
-</RelativeLayout>*/

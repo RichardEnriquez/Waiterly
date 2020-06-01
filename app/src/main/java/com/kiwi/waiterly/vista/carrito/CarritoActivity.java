@@ -46,12 +46,16 @@ public class CarritoActivity extends AppCompatActivity {
                             "Aun no hay platos",
                             Toast.LENGTH_SHORT).show();
                 }else {
-                    waiterlyManager.cleanPlatos();
+
+                    for (Plato x : waiterlyManager.getPlatosCarrito()){
+                        Plato plato = new Plato(x.getId(),x.getTitulo(),x.getDetalle(),x.getPrecio(),x.getFoto());
+                        waiterlyManager.addPlatoPedido(plato);
+                    }
+                    waiterlyManager.cleanCarrito();
                     Toast.makeText(getApplicationContext(),
                             "Pedido Realizado",
                                 Toast.LENGTH_SHORT).show();
-
-
+                    finish();
                 }
             }
         });
@@ -59,7 +63,7 @@ public class CarritoActivity extends AppCompatActivity {
         recyclerViewCarrito = findViewById(R.id.recyclerViewCarrito);
         recyclerViewCarrito.setLayoutManager(new LinearLayoutManager(this/*,RecyclerView.VERTICAL,false*/));
 
-        listaPlatos = waiterlyManager.getPlatos();
+        listaPlatos = waiterlyManager.getPlatosCarrito();
         //Log.d("platos", "=> "+listaPlatos);
 
         AdaptadorCarrito adaptadorCarrito = new AdaptadorCarrito(listaPlatos);
