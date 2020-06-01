@@ -7,7 +7,20 @@
     tools:context=".vista.login.LoginActivity">
 
 
-    
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionLogin"
+        android:layout_width="318dp"
+        android:layout_height="275dp"
+        app:layout_constraintBottom_toTopOf="@+id/textUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_fileName="octopus.json"
+        app:lottie_loop="true"
+        app:lottie_speed="1"
+        />
 
     <EditText
         android:id="@+id/textUsuario"

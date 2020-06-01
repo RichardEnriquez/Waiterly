@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        
 
         //Animacion de coccion
         LottieAnimationView lottieFood = (LottieAnimationView) findViewById(R.id.lottieAnimationFood);
