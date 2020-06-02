@@ -42,8 +42,9 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
         holder.precio.setText(precio);
         //holder.foto.setImageResource(listaEntrates.get(position).getFoto());
 
+        String aUrl = listaEntrates.get(position).getFoto();
         Picasso.get()
-                .load(listaEntrates.get(position).getFoto())
+                .load(aUrl)
                 //.load("https://xzy.wtf/1.png")
 
                 .placeholder(R.drawable.place_holder)

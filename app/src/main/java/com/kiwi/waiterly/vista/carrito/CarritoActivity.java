@@ -16,16 +16,30 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.controladores.WaiterlyManager;
+import com.kiwi.waiterly.modelo.Data;
+import com.kiwi.waiterly.modelo.EntrantesList;
 import com.kiwi.waiterly.modelo.Plato;
+import com.kiwi.waiterly.modelo.PostreList;
+import com.kiwi.waiterly.modelo.PrincipalList;
 import com.kiwi.waiterly.vista.MainActivity;
 import com.kiwi.waiterly.vista.entrante.Entrantes;
 import com.kiwi.waiterly.vista.postre.Postres;
 import com.kiwi.waiterly.vista.principal.Principales;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CarritoActivity extends AppCompatActivity {
     WaiterlyManager waiterlyManager = WaiterlyManager.getInstance();
@@ -58,6 +72,9 @@ public class CarritoActivity extends AppCompatActivity {
                         waiterlyManager.addPlatoPedido(plato);
                     }
                     waiterlyManager.cleanCarrito();
+
+                    //Madar datos al server
+                    mandarDatosPedido();
 
 
                     //animacion
@@ -139,5 +156,40 @@ public class CarritoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void mandarDatosPedido(){
+        ArrayList<Plato> platosPedidos =  waiterlyManager.getPlatosPedidos();
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://api.waiterly.tech/plate";
+        StringRequest request = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //Log.d("responseeeeeee", response);
+                        //parseamos los datos de gson a objetos
+//                        Gson gson = new Gson();
+//                        Data[] platos = gson.fromJson(response, Data[].class);
+//                        Log.d("tamaño de respuesta", "===========" + platos.length);
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //errores de red
+                Log.d("test", "Error " + error.getMessage());
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                Log.d("token", waiterlyManager.getTOKEN());
+                headers.put("Authorization", "Bearer " + waiterlyManager.getTOKEN());
+                return headers;
+            }
+        };
+        queue.add(request);
     }
 }

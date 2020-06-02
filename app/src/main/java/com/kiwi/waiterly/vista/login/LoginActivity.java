@@ -67,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void crearToken(){
         Log.d("test","entro login ");
-
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://api.waiterly.tech/auth/login";
 
@@ -84,18 +83,15 @@ public class LoginActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
-
                     }
                 }, new Response.ErrorListener () {
             @Override public void onErrorResponse (VolleyError error) {
                 //errores de red
                 Log.d("test", " Error de red = "+error.getMessage());
                 lottieError.playAnimation();
-
             }
         }){
             @Override
