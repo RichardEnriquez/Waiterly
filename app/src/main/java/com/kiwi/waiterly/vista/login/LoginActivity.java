@@ -24,6 +24,9 @@ import com.kiwi.waiterly.R;
 import com.kiwi.waiterly.controladores.WaiterlyManager;
 import com.kiwi.waiterly.vista.MainActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,8 +75,16 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener <String> () {
                     @Override public void onResponse (String response) {
 
-                        Log.d("response", response);
-                        waiterlyManager.crearToken(response);
+                        Log.d("TOKEN =======: ", response);
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            String token = (String) json.get("token");
+                            waiterlyManager.crearToken(token);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();

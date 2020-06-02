@@ -1,21 +1,31 @@
 package com.kiwi.waiterly.vista.entrante;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
-
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 import com.kiwi.waiterly.DetallePlatoSeleccionado;
-import com.kiwi.waiterly.controladores.AdaptadorDatos;
 import com.kiwi.waiterly.R;
+import com.kiwi.waiterly.controladores.AdaptadorDatos;
+import com.kiwi.waiterly.controladores.WaiterlyManager;
+import com.kiwi.waiterly.modelo.Data;
+import com.kiwi.waiterly.modelo.EntranteListParse;
 import com.kiwi.waiterly.modelo.EntrantesList;
 import com.kiwi.waiterly.modelo.Plato;
 import com.kiwi.waiterly.vista.MainActivity;
@@ -24,9 +34,12 @@ import com.kiwi.waiterly.vista.postre.Postres;
 import com.kiwi.waiterly.vista.principal.Principales;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Entrantes extends AppCompatActivity {
-    ArrayList<Plato> listaEntrantes;
+    WaiterlyManager waiterlyManager = WaiterlyManager.getInstance();
+    ArrayList<Plato> listaEntrantes = waiterlyManager.getEntrantes();
     RecyclerView recyclerViewEntrantes;
 
 
@@ -35,11 +48,8 @@ public class Entrantes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrantes);
 
-        listaEntrantes = new ArrayList<>();
         recyclerViewEntrantes = findViewById(R.id.recyclerViewEntrantes);
         recyclerViewEntrantes.setLayoutManager(new LinearLayoutManager(this/*,RecyclerView.VERTICAL,false*/));
-
-        llenarEntrantes();
 
         AdaptadorDatos adaptadorDatos = new AdaptadorDatos(listaEntrantes);
         recyclerViewEntrantes.setAdapter(adaptadorDatos);
@@ -61,44 +71,43 @@ public class Entrantes extends AppCompatActivity {
         });
 
 
-
         //BOTTOM
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         //seteamos entrante seleccionado por defecto
         bottomNavigationView.setSelectedItemId(R.id.entrante);
         //escuchamos por si tocan el bottonnavigation para cambiar de pantalla
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
 
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         finish();
                         return true;
 
                     case R.id.entrante:
                         startActivity(new Intent(getApplicationContext(), Entrantes.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         finish();
                         return true;
 
                     case R.id.principal:
                         startActivity(new Intent(getApplicationContext(), Principales.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         finish();
                         return true;
 
                     case R.id.postre:
                         startActivity(new Intent(getApplicationContext(), Postres.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         finish();
                         return true;
 
                     case R.id.carrito:
                         startActivity(new Intent(getApplicationContext(), CarritoActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
 
                 }
@@ -107,20 +116,4 @@ public class Entrantes extends AppCompatActivity {
         });
     }
 
-    private void llenarEntrantes(){
-
-        listaEntrantes.add(new EntrantesList(1,"Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
-        listaEntrantes.add(new EntrantesList(2,"Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
-        listaEntrantes.add(new EntrantesList(3,"Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
-        listaEntrantes.add(new EntrantesList(4,"Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
-        listaEntrantes.add(new EntrantesList(5,"Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
-        listaEntrantes.add(new EntrantesList(6,"Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
-        listaEntrantes.add(new EntrantesList(7,"Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
-        listaEntrantes.add(new EntrantesList(8,"Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
-        listaEntrantes.add(new EntrantesList(9,"Test1","estan muy buenas1",20,"https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2012/01/comida-rapida-casera.jpg"));
-        listaEntrantes.add(new EntrantesList(10,"Test2","estan muy buenas2", 22,"https://tecnohotelnews.com/wp-content/uploads/2018/04/siete-claves-para-ofrecer-platos-saludables-atractivos-a-los-comensales.jpg"));
-        listaEntrantes.add(new EntrantesList(11,"Test3","estan muy buenas3",15,"https://es.food-of-dream.com/content/11/11894/7d9d3f174a7387a98cbe5ff60c30cc70.jpg"));
-        listaEntrantes.add(new EntrantesList(12,"Test4","estan muy buenas4",8,"https://www.clara.es/medio/2018/12/18/recetas-comidas-saludables_5102de8e_600x900.jpg"));
-
-    }
 }

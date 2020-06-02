@@ -39,7 +39,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.View
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, final int position) {
         holder.titulo.setText(listaPlatosCarrito.get(position).getTitulo());
         holder.detalle.setText(listaPlatosCarrito.get(position).getDetalle());
-        String precio = String.valueOf(listaPlatosCarrito.get(position).getPrecio()) ;
+        String precio = String.valueOf(listaPlatosCarrito.get(position).getPrecio()+" €") ;
         holder.precio.setText(precio);
         //holder.foto.setImageResource(listaEntrates.get(position).getFoto());
 

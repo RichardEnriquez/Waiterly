@@ -32,15 +32,14 @@
 
     <TextView
         android:id="@+id/textViewEntranteDescripcion"
-        android:layout_width="281dp"
-        android:layout_height="131dp"
+        android:layout_width="367dp"
+        android:layout_height="137dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
         android:text="Detalle"
         android:textAlignment="textStart"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toEndOf="@+id/imageViewEntrante"
         app:layout_constraintTop_toBottomOf="@+id/textViewEntranteTitulo" />
 

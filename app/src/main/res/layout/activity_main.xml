@@ -24,9 +24,9 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationFood"
-        android:layout_width="335dp"
-        android:layout_height="389dp"
-        android:layout_marginBottom="156dp"
+        android:layout_width="823dp"
+        android:layout_height="557dp"
+        android:layout_marginBottom="32dp"
 
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,5 +66,18 @@
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textViewPedidoSolicitado"
+        android:layout_width="353dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="96dp"
+        android:text="Pedido solicitado"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/lottieAnimationFood"
+        app:layout_constraintStart_toStartOf="@+id/lottieAnimationFood"
+        app:layout_constraintTop_toTopOf="@+id/lottieAnimationFood" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

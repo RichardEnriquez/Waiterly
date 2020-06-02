@@ -59,6 +59,7 @@ public class CarritoActivity extends AppCompatActivity {
                     }
                     waiterlyManager.cleanCarrito();
 
+
                     //animacion
                     recyclerViewCarrito.setVisibility(View.INVISIBLE);
                     lottiePago.setVisibility(View.VISIBLE);
@@ -79,8 +80,6 @@ public class CarritoActivity extends AppCompatActivity {
                             }
                         }
                     }, 0);
-
-                    //finish();
                 }
             }
         });
@@ -94,9 +93,6 @@ public class CarritoActivity extends AppCompatActivity {
 
         AdaptadorCarrito adaptadorCarrito = new AdaptadorCarrito(listaPlatos);
         recyclerViewCarrito.setAdapter(adaptadorCarrito);
-
-
-
 
 
         //BOTTOM
@@ -136,6 +132,7 @@ public class CarritoActivity extends AppCompatActivity {
                     case R.id.carrito:
                         startActivity(new Intent(getApplicationContext(), CarritoActivity.class));
                         overridePendingTransition(0,0);
+                        finish();
                         return true;
                 }
                 return false;

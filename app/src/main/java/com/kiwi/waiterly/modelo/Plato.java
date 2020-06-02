@@ -3,13 +3,13 @@ package com.kiwi.waiterly.modelo;
 import java.io.Serializable;
 
 public class Plato  implements Serializable {
-    private int id;
+    private String id;
     private String titulo;
     private String detalle;
     private int precio;
     private String foto;
 
-    public Plato(int id, String titulo, String detalle, int precio, String foto) {
+    public Plato(String id, String titulo, String detalle, int precio, String foto) {
         this.id = id;
         this.titulo = titulo;
         this.detalle = detalle;
@@ -17,11 +17,11 @@ public class Plato  implements Serializable {
         this.foto = foto;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -60,11 +60,11 @@ public class Plato  implements Serializable {
     @Override
     public String toString() {
         return "Plato{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", titulo='" + titulo + '\'' +
                 ", detalle='" + detalle + '\'' +
                 ", precio=" + precio +
                 ", foto='" + foto + '\'' +
-                '}'+"\n";
+                '}';
     }
 }

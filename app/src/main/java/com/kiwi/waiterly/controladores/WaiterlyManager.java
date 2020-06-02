@@ -10,8 +10,13 @@ public class WaiterlyManager {
     private static WaiterlyManager instancia = null;
 
     private String TOKEN_RESSTAURANTE;
+    private ArrayList<Plato> entrantes;
+    private ArrayList<Plato> principales;
+    private ArrayList<Plato> postres;
+
     private ArrayList<Plato> carrito;
     private ArrayList<Plato> platosPedidos;
+
 
 
 
@@ -19,6 +24,10 @@ public class WaiterlyManager {
     private WaiterlyManager(){
         carrito = new ArrayList<Plato>();
         platosPedidos = new ArrayList<Plato>();
+        entrantes = new ArrayList<>();
+        principales = new ArrayList<>();
+        postres = new ArrayList<>();
+
     }
 
     public static WaiterlyManager getInstance(){
@@ -31,7 +40,20 @@ public class WaiterlyManager {
     public String getTOKEN() {
         return TOKEN_RESSTAURANTE;
     }
+
+    public ArrayList<Plato> getEntrantes() {
+        return entrantes;
+    }
+
+    public ArrayList<Plato> getPrincipales() {
+        return principales;
+    }
+
+    public ArrayList<Plato> getPostres() {
+        return postres;
+    }
     //todo:FUNCIONES
+
     public void crearToken(String token){
         TOKEN_RESSTAURANTE = token;
     }
@@ -54,4 +76,9 @@ public class WaiterlyManager {
     public void cleanCarrito(){
         carrito = new ArrayList<>();
     }
+
+    public String getTOKEN_RESSTAURANTE() {
+        return TOKEN_RESSTAURANTE;
+    }
+
 }

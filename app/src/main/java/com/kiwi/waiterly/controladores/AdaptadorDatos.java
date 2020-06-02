@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHolderDatos> implements View.OnClickListener{
 
-    private ArrayList<Plato> listaEntrates;
+    private ArrayList<Plato> listaEntrates = new ArrayList<>();
     private View.OnClickListener listener;
 
     public AdaptadorDatos(ArrayList<Plato> listaEntrates) {
@@ -38,13 +38,13 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
         holder.titulo.setText(listaEntrates.get(position).getTitulo());
         holder.detalle.setText(listaEntrates.get(position).getDetalle());
-        String precio = String.valueOf(listaEntrates.get(position).getPrecio()) ;
+        String precio = String.valueOf(listaEntrates.get(position).getPrecio()+" €") ;
         holder.precio.setText(precio);
         //holder.foto.setImageResource(listaEntrates.get(position).getFoto());
 
         Picasso.get()
                 .load(listaEntrates.get(position).getFoto())
-                //.load("https://www.196flavors.com/wp-content/uploads/2018/12/pique-macho-2.jpg")
+                //.load("https://xzy.wtf/1.png")
 
                 .placeholder(R.drawable.place_holder)
                 .error(R.drawable.menu)
